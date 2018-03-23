@@ -33,6 +33,18 @@ public class ListActivity extends Activity {
         list.add(new Movie("Avc", "ADS"));
         list.add(new Movie("Avc", "ADS"));
         list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
+        list.add(new Movie("Avc", "ADS"));
 
         mAdapter = new MovieAdapter(list);
         mRecyclerView.setAdapter(mAdapter);

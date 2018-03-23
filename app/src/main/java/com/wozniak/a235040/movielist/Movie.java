@@ -12,7 +12,7 @@ public class Movie {
     public Movie(String name, String category){
         this.name = name;
         this.category = category;
-        this.imageRId = R.drawable.ic_launcher_foreground;
+        this.imageRId = R.mipmap.ic_launcher_round;
     }
 
     public Movie(String name, String category, int imageRId) {

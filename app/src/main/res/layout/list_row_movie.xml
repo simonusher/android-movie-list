@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="8dp"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingHorizontal="8dp"
     android:gravity="center_vertical">
 
     <ImageView
@@ -11,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
-        android:layout_marginEnd="8dp"/>
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/movieNameTextViewMain"
@@ -29,4 +31,12 @@
         android:layout_below="@+id/movieNameTextViewMain"
         android:layout_toEndOf="@+id/movieIconImageView"
         android:text="TextView" />
+
+    <View
+        android:id="@+id/rule"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_below="@id/movieIconImageView"
+        android:background="@color/divider">
+    </View>
 </RelativeLayout>

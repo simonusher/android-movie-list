@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MovieList.iml" filepath="$PROJECT_DIR$/MovieList.iml" />
+      <module fileurl="file://E:\Projekty\SWiM\movie-list\MovieList.iml" filepath="E:\Projekty\SWiM\movie-list\MovieList.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/movie-list.iml" filepath="$PROJECT_DIR$/movie-list.iml" />
     </modules>
   </component>
 </project>
