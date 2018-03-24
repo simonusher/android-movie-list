@@ -1,15 +1,17 @@
 package com.wozniak.a235040.movielist;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 
 public class ListActivity extends Activity {
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private MovieAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
@@ -48,5 +50,11 @@ public class ListActivity extends Activity {
 
         mAdapter = new MovieAdapter(list);
         mRecyclerView.setAdapter(mAdapter);
+        SwipeController swipeController = new SwipeController(mAdapter);
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+        itemTouchhelper.attachToRecyclerView(mRecyclerView);
+        Intent intent = new Intent(this, MovieDetailsActivity.class);
+        startActivity(intent);
+
     }
 }

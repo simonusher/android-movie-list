@@ -65,4 +65,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     public int getItemCount() {
         return movies.size();
     }
+
+    public void removeItem(int position){
+        movies.remove(position);
+        notifyItemRemoved(position);
+    }
 }
