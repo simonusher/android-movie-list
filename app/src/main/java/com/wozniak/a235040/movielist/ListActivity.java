@@ -30,23 +30,6 @@ public class ListActivity extends Activity {
 
         // specify an adapter (see also next example)
         ArrayList<Movie> list = MovieList.getInstance();
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
-        list.add(new Movie("Avc", "ADS"));
 
         mAdapter = new MovieAdapter(list);
         mRecyclerView.setAdapter(mAdapter);

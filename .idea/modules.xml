@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://E:\Projekty\SWiM\movie-list\MovieList.iml" filepath="E:\Projekty\SWiM\movie-list\MovieList.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Projekty\movie-list\app\app.iml" filepath="C:\Projekty\movie-list\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/movie-list.iml" filepath="$PROJECT_DIR$/movie-list.iml" />
+      <module fileurl="file://C:\Projekty\movie-list\movie-list.iml" filepath="C:\Projekty\movie-list\movie-list.iml" />
     </modules>
   </component>
 </project>

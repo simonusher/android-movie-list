@@ -48,10 +48,11 @@
             android:text="@string/arrowRight" />
     </LinearLayout>
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.wozniak.a235040.movielist.GalleryFragment"
+    <FrameLayout
+        android:id="@+id/fragmentFrame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
 
 </LinearLayout>
