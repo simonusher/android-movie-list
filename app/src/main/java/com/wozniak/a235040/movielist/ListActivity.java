@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,8 +37,11 @@ public class ListActivity extends Activity {
         SwipeController swipeController = new SwipeController(mAdapter);
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
         itemTouchhelper.attachToRecyclerView(mRecyclerView);
-        Intent intent = new Intent(this, MovieDetailsActivity.class);
-        startActivity(intent);
+    }
 
+    public void clickedMovie(int id){
+        Intent intent = new Intent(this, MovieDetailsActivity.class);
+        intent.putExtra("movieId", id);
+        startActivity(intent);
     }
 }

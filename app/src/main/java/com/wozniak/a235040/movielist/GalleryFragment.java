@@ -27,9 +27,6 @@ public class GalleryFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -37,20 +34,18 @@ public class GalleryFragment extends Fragment {
         // Required empty public constructor
     }
 
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment GalleryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GalleryFragment newInstance(String param1, String param2) {
+    public static GalleryFragment newInstance(Movie movie) {
         GalleryFragment fragment = new GalleryFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putIntArray("imageRIds", movie.getGalleryImagesRIds());
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,8 +54,7 @@ public class GalleryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
 
     }
@@ -115,14 +109,6 @@ public class GalleryFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         GridView gridview = getView().findViewById(R.id.galleryGridView);
-        gridview.setAdapter(new ImageAdapter(getActivity()));
-
-        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(getContext(), "" + position,
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+        gridview.setAdapter(new ImageAdapter(getActivity(), this.getArguments().getIntArray("imageRIds")));
     }
 }

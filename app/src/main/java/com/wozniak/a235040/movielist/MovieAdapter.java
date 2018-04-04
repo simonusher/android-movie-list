@@ -2,10 +2,12 @@ package com.wozniak.a235040.movielist;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -46,7 +48,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         // create a new view
         RelativeLayout rowLayout  = (RelativeLayout) LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.list_row_movie, parent, false);
-        return new ViewHolder(rowLayout);
+        final ViewHolder viewHolder = new ViewHolder(rowLayout);
+        rowLayout.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                ((ListActivity)v.getContext()).clickedMovie(viewHolder.getAdapterPosition());
+            }
+        });
+        return viewHolder;
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -55,7 +63,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         Movie movie = movies.get(position);
-        holder.movieImage.setImageResource(movie.getImageRId());
+        holder.movieImage.setImageResource(movie.getThumbnailRId());
         holder.movieName.setText(movie.getName());
         holder.movieCategory.setText(movie.getCategory());
     }

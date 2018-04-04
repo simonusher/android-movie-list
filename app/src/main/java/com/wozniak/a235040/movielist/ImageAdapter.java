@@ -14,9 +14,14 @@ import android.widget.ListAdapter;
 
 public class ImageAdapter extends BaseAdapter {
     private Context mContext;
+    private Integer[] mThumbIds;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter(Context c, int[] imageRIds) {
         mContext = c;
+        mThumbIds = new Integer[imageRIds.length];
+        for (int i = 0; i < imageRIds.length; i++){
+            mThumbIds[i] = imageRIds[i];
+        }
     }
 
     public int getCount() {
@@ -37,7 +42,7 @@ public class ImageAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(250, 250));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -48,18 +53,18 @@ public class ImageAdapter extends BaseAdapter {
         return imageView;
     }
 
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
-    };
+//    // references to our images
+//    private Integer[] mThumbIds = {
+//            R.drawable.sample_2, R.drawable.sample_3,
+//            R.drawable.sample_4, R.drawable.sample_5,
+//            R.drawable.sample_6, R.drawable.sample_7,
+//            R.drawable.sample_0, R.drawable.sample_1,
+//            R.drawable.sample_2, R.drawable.sample_3,
+//            R.drawable.sample_4, R.drawable.sample_5,
+//            R.drawable.sample_6, R.drawable.sample_7,
+//            R.drawable.sample_0, R.drawable.sample_1,
+//            R.drawable.sample_2, R.drawable.sample_3,
+//            R.drawable.sample_4, R.drawable.sample_5,
+//            R.drawable.sample_6, R.drawable.sample_7
+//    };
 }
