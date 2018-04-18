@@ -14,7 +14,15 @@ public class MovieList {
             instance = new ArrayList<>();
             int[] deadpoolGallery = new int[]{R.drawable.dp_0, R.drawable.dp_1, R.drawable.dp_2, R.drawable.dp_3, R.drawable.dp_4, R.drawable.dp_5, R.drawable.dp_6, R.drawable.dp_7,
                     R.drawable.dp_8};
-            instance.add(new Movie("Deadpool", "Action", R.drawable.deadpool_poster, R.drawable.deadpool_banner, deadpoolGallery));
+            ArrayList<Person> actors = new ArrayList<>();
+            actors.add(Person.createPerson("A", "B", 5));
+            actors.add(Person.createPerson("A", "B", 5));
+            actors.add(Person.createPerson("B", "B", 6));
+            actors.add(Person.createPerson("C", "B", 7));
+            actors.add(Person.createPerson("D", "B", 8));
+            actors.add(Person.createPerson("E", "B", 9));
+
+            instance.add(new Movie("Deadpool", "Action", R.drawable.deadpool_poster, R.drawable.deadpool_banner, deadpoolGallery, actors));
             instance.add(new Movie("A", "B"));
             instance.add(new Movie("C", "D"));
             instance.add(new Movie("E", "F"));

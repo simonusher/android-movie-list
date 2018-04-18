@@ -1,5 +1,8 @@
 package com.wozniak.a235040.movielist;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Szymon on 22.03.2018.
  */
@@ -10,6 +13,7 @@ public class Movie {
     private int thumbnailRId;
     private int bannerRId;
     private int[] galleryImagesRIds;
+    private ArrayList<Person> actors;
 
 
 
@@ -22,6 +26,7 @@ public class Movie {
         for (int i = 0; i < 9; i++){
             galleryImagesRIds[i] = R.mipmap.ic_launcher_round;
         }
+        this.actors = new ArrayList<>();
     }
 
     public Movie(String name, String category, int thumbnailRId) {
@@ -30,10 +35,11 @@ public class Movie {
         this.thumbnailRId = thumbnailRId;
     }
 
-    public Movie(String name, String category, int thumbnailRId, int bannerRId, int[] galleryImagesRIds){
+    public Movie(String name, String category, int thumbnailRId, int bannerRId, int[] galleryImagesRIds, ArrayList<Person> actors){
         this(name, category, thumbnailRId);
         this.bannerRId = bannerRId;
         this.galleryImagesRIds = galleryImagesRIds;
+        this.actors = actors;
     }
 
     public String getName() {
@@ -54,5 +60,9 @@ public class Movie {
 
     public int[] getGalleryImagesRIds() {
         return galleryImagesRIds;
+    }
+
+    public ArrayList<Person> getActors() {
+        return actors;
     }
 }

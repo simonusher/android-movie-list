@@ -1,21 +1,23 @@
 package com.wozniak.a235040.movielist;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MovieDetailsActivity extends Activity implements GalleryFragment.OnFragmentInteractionListener, ActorListFragement.OnFragmentInteractionListener {
+public class MovieDetailsActivity extends FragmentActivity implements GalleryFragment.OnFragmentInteractionListener, ActorListFragment.OnFragmentInteractionListener {
+    private static final int NUM_PAGES = 2;
     GalleryFragment galleryFragment;
-    ActorListFragement actorListFragement;
+    ActorListFragment actorListFragment;
     TextView movieName;
     TextView movieCategory;
     ImageView movieBanner;
+    private ViewPager mPager;
+    private PagerAdapter mPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,30 +30,25 @@ public class MovieDetailsActivity extends Activity implements GalleryFragment.On
         movieName.setText(m.getName());
         movieCategory.setText(m.getCategory());
         galleryFragment = GalleryFragment.newInstance(m);
-        actorListFragement = new ActorListFragement();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        actorListFragment = ActorListFragment.newInstance(m.getActors());
 
-        transaction.replace(R.id.fragmentFrame, galleryFragment);
-        transaction.commit();
-        Button right = findViewById(R.id.button2);
-        right.setOnClickListener(new View.OnClickListener() {
+        mPager = findViewById(R.id.movie_details_pager);
+        mPagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentFrame, actorListFragement);
-                transaction.commit();
+            public android.support.v4.app.Fragment getItem(int position) {
+                if(position == 0){
+                    return galleryFragment;
+                } else {
+                    return actorListFragment;
+                }
             }
-        });
 
-        Button left = findViewById(R.id.button);
-        left.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragmentFrame, galleryFragment);
-                transaction.commit();
+            public int getCount() {
+                return NUM_PAGES;
             }
-        });
+        };
+        mPager.setAdapter(mPagerAdapter);
     }
 
     @Override
