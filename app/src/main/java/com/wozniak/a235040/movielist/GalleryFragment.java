@@ -1,9 +1,12 @@
 package com.wozniak.a235040.movielist;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 import android.support.v4.app.Fragment;
+
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 
 /**
@@ -22,11 +27,7 @@ import android.support.v4.app.Fragment;
  * create an instance of this fragment.
  */
 public class GalleryFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
+    GridRecyclerAdapter adapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -35,13 +36,6 @@ public class GalleryFragment extends Fragment {
     }
 
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment GalleryFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static GalleryFragment newInstance(Movie movie) {
         GalleryFragment fragment = new GalleryFragment();
         Bundle args = new Bundle();
@@ -108,7 +102,17 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        GridView gridview = getView().findViewById(R.id.galleryGridView);
-        gridview.setAdapter(new ImageAdapter(getActivity(), this.getArguments().getIntArray("imageRIds")));
+        MovieDetailsActivity movieDetailsActivity = (MovieDetailsActivity)getContext();
+        RecyclerView recyclerView = ((MovieDetailsActivity)movieDetailsActivity).findViewById(R.id.galleryRecyclerView);
+        int numberOfColumns;
+        if(getResources().getConfiguration().orientation == ORIENTATION_PORTRAIT){
+            numberOfColumns = Utility.calculateNoOfColumns(movieDetailsActivity);
+        } else {
+            numberOfColumns = Utility.calculateNoOfColumns(movieDetailsActivity) / 2;
+        }
+        int data[] = this.getArguments().getIntArray("imageRIds");
+        recyclerView.setLayoutManager(new GridLayoutManager(movieDetailsActivity, numberOfColumns));
+        adapter = new GridRecyclerAdapter(movieDetailsActivity, data);
+        recyclerView.setAdapter(adapter);
     }
 }

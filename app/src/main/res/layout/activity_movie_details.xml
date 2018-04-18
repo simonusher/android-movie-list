@@ -5,37 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="5dp"
     tools:context="com.wozniak.a235040.movielist.MovieDetailsActivity">
 
     <ImageView
         android:id="@+id/movieBanner"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/movieNameDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:textSize="30sp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/movieCategoryDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:textSize="30sp" />
+        android:layout_marginStart="10dp"
+        android:textSize="24sp" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/movie_details_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

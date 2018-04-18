@@ -11,11 +11,13 @@ public class Person implements Parcelable{
     private String name;
     private String surname;
     private int age;
+    private int photoRId;
 
-    private Person(String name, String surname, int age) {
+    private Person(String name, String surname, int age, int photoRId) {
         this.name = name;
         this.surname = surname;
         this.age = age;
+        this.photoRId = photoRId;
     }
 
     public Person (Parcel parcel) {
@@ -28,9 +30,9 @@ public class Person implements Parcelable{
         return age >= 0 && age < 150;
     }
 
-    public static Person createPerson(String name, String surname, int age){
+    public static Person createPerson(String name, String surname, int age, int photoRId){
         if(isAgeCorrect(age)){
-            return new Person(name, surname, age);
+            return new Person(name, surname, age, photoRId);
         } else {
             throw new IllegalArgumentException("Incorrect age!");
         }
@@ -46,6 +48,10 @@ public class Person implements Parcelable{
 
     public int getAge() {
         return age;
+    }
+
+    public int getPhotoRId() {
+        return photoRId;
     }
 
     @Override
